@@ -77,6 +77,14 @@ public class LinkedListTest {
     }
 
     @Test
+    public void delete_oneItem() {
+        LinkedList linkedList = new LinkedList();
+        linkedList.insertFirst(1);
+        linkedList.delete(1);
+        assertArrayEquals(linkedList.getList(), new int[]{});
+    }
+
+    @Test
     public void isEmpty_empty() {
         LinkedList linkedList = new LinkedList();
         assertTrue(linkedList.isEmpty());
