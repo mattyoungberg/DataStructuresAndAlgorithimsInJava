@@ -26,7 +26,7 @@ public class LinkedList implements ILinkedList {
 
     @Override
     public void deleteFirst() {
-        if (first != null)
+        if (!isEmpty())
             first = first.next;
     }
 
@@ -35,7 +35,7 @@ public class LinkedList implements ILinkedList {
         Link current = first;
         while (current != null) {
             if (current.key == item)
-                    return true;
+                return true;
             current = current.next;
         }
         return false;
@@ -43,13 +43,14 @@ public class LinkedList implements ILinkedList {
 
     @Override
     public void delete(int item) {
-        if (first.key == item)
-            first = first.next;
         Link previous = first;
         Link current = first;
         while (current != null) {
             if (current.key == item) {
-                previous.next = current.next;
+                if (current == first)
+                    first = first.next;
+                else
+                    previous.next = current.next;
                 return;
             }
             previous = current;
