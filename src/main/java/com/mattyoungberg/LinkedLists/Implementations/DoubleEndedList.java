@@ -1,17 +1,18 @@
-package com.mattyoungberg.LinkedList;
+package com.mattyoungberg.LinkedLists.Implementations;
 
-import com.mattyoungberg.Interfaces.ILinkedList;
+import com.mattyoungberg.LinkedLists.Interfaces.IDoubleEndedList;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class LinkedList implements ILinkedList {
+public class DoubleEndedList implements IDoubleEndedList {
 
-    public Link first = null;
+    public Link first;
+    public Link last;
 
     static class Link {
-        public int key;
-        public Link next;
+        int key;
+        Link next;
 
         public Link(int key, Link next) {
             this.key = key;
@@ -19,14 +20,28 @@ public class LinkedList implements ILinkedList {
         }
     }
 
+
     @Override
     public void insertFirst(int item) {
         first = new Link(item, first);
+        if (last == null)
+            last = first;
+    }
+
+    @Override
+    public void insertLast(int item) {
+        Link newLink = new Link(item, null);
+        if (last != null) {
+            last.next = newLink;
+        } else {
+            first = newLink;
+        }
+        last = newLink;
     }
 
     @Override
     public void deleteFirst() {
-        if (!isEmpty())
+        if (first != null)
             first = first.next;
     }
 
@@ -34,33 +49,11 @@ public class LinkedList implements ILinkedList {
     public boolean search(int item) {
         Link current = first;
         while (current != null) {
-            if (current.key == item)
+            if(current.key == item)
                 return true;
             current = current.next;
         }
         return false;
-    }
-
-    @Override
-    public void delete(int item) {
-        Link previous = first;
-        Link current = first;
-        while (current != null) {
-            if (current.key == item) {
-                if (current == first)
-                    first = first.next;
-                else
-                    previous.next = current.next;
-                return;
-            }
-            previous = current;
-            current = current.next;
-        }
-    }
-
-    @Override
-    public boolean isEmpty() {
-        return first == null;
     }
 
     @Override
@@ -72,9 +65,8 @@ public class LinkedList implements ILinkedList {
             current = current.next;
         }
         int[] intArray = new int[list.size()];
-        for(int i = 0; i < list.size(); i++) {
+        for(int i = 0; i < list.size(); i++)
             intArray[i] = list.get(i);
-        }
         return intArray;
     }
 }

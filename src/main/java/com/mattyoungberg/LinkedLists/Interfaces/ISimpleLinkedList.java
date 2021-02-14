@@ -1,10 +1,6 @@
-package com.mattyoungberg.Interfaces;
+package com.mattyoungberg.LinkedLists.Interfaces;
 
-public interface ILinkedList {
-
-    // Link first = null;
-
-    // class Link {}
+public interface ISimpleLinkedList {
 
     void insertFirst(int item);
 
