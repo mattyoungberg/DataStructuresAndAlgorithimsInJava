@@ -47,11 +47,10 @@ public class SimpleLinkedList implements ISimpleLinkedList {
         Link current = first;
         while (current != null) {
             if (current.key == item) {
-                if (current == first){
+                if (current == first)
                     first = first.next;
-                } else {
+                else
                     previous.next = current.next;
-                }
                 return;
             }
             previous = current;

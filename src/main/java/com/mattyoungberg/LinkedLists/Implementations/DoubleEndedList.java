@@ -20,7 +20,6 @@ public class DoubleEndedList implements IDoubleEndedList {
         }
     }
 
-
     @Override
     public void insertFirst(int item) {
         first = new Link(item, first);
@@ -31,10 +30,10 @@ public class DoubleEndedList implements IDoubleEndedList {
     @Override
     public void insertLast(int item) {
         Link newLink = new Link(item, null);
-        if (last != null) {
-            last.next = newLink;
-        } else {
+        if (first == null) {
             first = newLink;
+        } else {
+            last.next = newLink;
         }
         last = newLink;
     }
@@ -49,7 +48,7 @@ public class DoubleEndedList implements IDoubleEndedList {
     public boolean search(int item) {
         Link current = first;
         while (current != null) {
-            if(current.key == item)
+            if (current.key == item)
                 return true;
             current = current.next;
         }
