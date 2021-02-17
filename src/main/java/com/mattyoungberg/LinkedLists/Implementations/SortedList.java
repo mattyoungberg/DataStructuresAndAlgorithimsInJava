@@ -7,7 +7,7 @@ import java.util.List;
 
 public class SortedList implements ISortedList {
 
-    public Link first;
+    public Link first = null;
 
     static class Link {
         int key;
@@ -28,9 +28,9 @@ public class SortedList implements ISortedList {
             previous = current;
             current = current.next;
         }
-        if (previous == null)  // at beginning of list
+        if (previous == null)
             first = newLink;
-        else  // Either in the middle or at the end
+        else
             previous.next = newLink;
         newLink.next = current;
     }
