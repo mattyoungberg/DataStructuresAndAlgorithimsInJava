@@ -7,8 +7,8 @@ import java.util.List;
 
 public class DoubleEndedList implements IDoubleEndedList {
 
-    public Link first;
-    public Link last;
+    public Link first = null;
+    public Link last = null;
 
     static class Link {
         int key;
@@ -30,18 +30,20 @@ public class DoubleEndedList implements IDoubleEndedList {
     @Override
     public void insertLast(int item) {
         Link newLink = new Link(item, null);
-        if (first == null) {
-            first = newLink;
-        } else {
+        if (last != null)
             last.next = newLink;
-        }
+        else
+            first = newLink;
         last = newLink;
     }
 
     @Override
     public void deleteFirst() {
-        if (first != null)
+        if (first != null) {
+            if (first == last)
+                last = null;
             first = first.next;
+        }
     }
 
     @Override

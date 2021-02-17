@@ -48,6 +48,15 @@ public class DoubleEndedListTest {
     }
 
     @Test
+    public void deleteFirst_oneItem() {
+        DoubleEndedList doubleEndedList = new DoubleEndedList();
+        doubleEndedList.insertFirst(1);
+        doubleEndedList.deleteFirst();
+        assertNull(doubleEndedList.first);
+        assertNull(doubleEndedList.last);
+    }
+
+    @Test
     public void deleteFirst_Empty() {
         DoubleEndedList doubleEndedList = new DoubleEndedList();
         doubleEndedList.deleteFirst();  // Should do nothing
