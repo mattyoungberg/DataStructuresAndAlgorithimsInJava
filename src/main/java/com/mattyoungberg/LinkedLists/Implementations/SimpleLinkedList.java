@@ -10,8 +10,8 @@ public class SimpleLinkedList implements ISimpleLinkedList {
     public Link first = null;
 
     static class Link {
-        public int key;
-        public Link next;
+        int key;
+        Link next;
 
         public Link(int key, Link next) {
             this.key = key;
