@@ -26,7 +26,7 @@ public class SimpleLinkedList implements ISimpleLinkedList {
 
     @Override
     public void deleteFirst() {
-        if (first != null)
+        if (!isEmpty())
             first = first.next;
     }
 

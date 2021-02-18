@@ -10,6 +10,8 @@ public interface IDoubleEndedList {
 
     void deleteFirst();
 
+    boolean isEmpty();
+
     boolean search(int item);
 
     int[] getList();

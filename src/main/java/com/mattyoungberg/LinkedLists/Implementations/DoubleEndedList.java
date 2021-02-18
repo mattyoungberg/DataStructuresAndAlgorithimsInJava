@@ -23,23 +23,23 @@ public class DoubleEndedList implements IDoubleEndedList {
     @Override
     public void insertFirst(int item) {
         first = new Link(item, first);
-        if (last == null)
+        if (isEmpty())
             last = first;
     }
 
     @Override
     public void insertLast(int item) {
         Link newLink = new Link(item, null);
-        if (last != null)
-            last.next = newLink;
-        else
+        if (isEmpty())
             first = newLink;
+        else
+            last.next = newLink;
         last = newLink;
     }
 
     @Override
     public void deleteFirst() {
-        if (first != null) {
+        if (!isEmpty()) {
             if (first == last)
                 last = null;
             first = first.next;
@@ -55,6 +55,11 @@ public class DoubleEndedList implements IDoubleEndedList {
             current = current.next;
         }
         return false;
+    }
+
+    @Override
+    public boolean isEmpty() {
+        return first == null;
     }
 
     @Override
