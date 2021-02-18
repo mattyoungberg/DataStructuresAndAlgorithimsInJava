@@ -43,7 +43,7 @@ public class SimpleLinkedList implements ISimpleLinkedList {
 
     @Override
     public void delete(int item) {
-        Link previous = first;
+        Link previous = null;
         Link current = first;
         while (current != null) {
             if (current.key == item) {
