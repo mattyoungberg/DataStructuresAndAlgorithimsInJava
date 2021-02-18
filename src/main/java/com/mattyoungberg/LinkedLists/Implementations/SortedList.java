@@ -37,7 +37,7 @@ public class SortedList implements ISortedList {
 
     @Override
     public void deleteFirst() {
-        if (first != null)
+        if (!isEmpty())
             first = first.next;
     }
 
