@@ -45,11 +45,8 @@ public class DoublyLinkedList implements IDoublyLinkedList {
     @Override
     public void insertAfter(int item, int after) {
         Link current = first;
-        while (current != null) {
-            if (current.key == after)
-                break;
+        while (current != null && current.key != after)
             current = current.next;
-        }
         if (current == null)
             return;
         Link newLink = new Link(item);
@@ -67,7 +64,7 @@ public class DoublyLinkedList implements IDoublyLinkedList {
     @Override
     public void deleteFirst() {
         if (!isEmpty()) {
-            if (first.next == null)
+            if (first == last)
                 last = null;
             else
                 first.next.previous = null;
@@ -78,7 +75,7 @@ public class DoublyLinkedList implements IDoublyLinkedList {
     @Override
     public void deleteLast() {
         if (!isEmpty()) {
-            if (first.next == null)
+            if (first == last)
                 first = null;
             else
                 last.previous.next = null;
@@ -89,11 +86,8 @@ public class DoublyLinkedList implements IDoublyLinkedList {
     @Override
     public void deleteKey(int key) {
         Link current = first;
-        while (current != null) {
-            if (current.key == key)
-                break;
+        while (current != null && current.key != key)
             current = current.next;
-        }
         if (current == null)
             return;
         if (current == first)
