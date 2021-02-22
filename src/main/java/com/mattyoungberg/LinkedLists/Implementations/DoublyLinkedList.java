@@ -12,11 +12,13 @@ public class DoublyLinkedList implements IDoublyLinkedList {
 
     static class Link {
         int key;
-        Link next = null;
-        Link previous = null;
+        Link next;
+        Link previous;
 
         public Link(int key) {
             this.key = key;
+            this.next = null;
+            this.previous = null;
         }
     }
 
@@ -50,14 +52,12 @@ public class DoublyLinkedList implements IDoublyLinkedList {
         if (current == null)
             return;
         Link newLink = new Link(item);
-        if (current == last) {
-            newLink.next = null;
+        if (current == last)
             last = newLink;
-        } else {
-            newLink.next = current.next;
+        else
             current.next.previous = newLink;
-        }
         newLink.previous = current;
+        newLink.next = current.next;
         current.next = newLink;
     }
 
