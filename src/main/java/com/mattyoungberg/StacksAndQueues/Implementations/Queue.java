@@ -51,7 +51,7 @@ public class Queue implements IQueue {
 
     @Override
     public boolean isFull() {
-       return nItems == maxSize;
+        return nItems == maxSize;
     }
 
     @Override
