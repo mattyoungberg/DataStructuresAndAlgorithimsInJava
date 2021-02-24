@@ -56,6 +56,19 @@ public class QueueTest {
     }
 
     @Test
+    public void peek_last() {
+        Queue queue = new Queue(3);
+        queue.insert(1);
+        queue.insert(2);
+        queue.insert(3);
+        queue.remove();
+        queue.insert(4);  // Invoke wrap-around
+        queue.remove();
+        queue.remove();
+        assertEquals(4, queue.peek());
+    }
+
+    @Test
     public void isFull_true() {
         Queue queue = new Queue(3);
         queue.insert(1);
