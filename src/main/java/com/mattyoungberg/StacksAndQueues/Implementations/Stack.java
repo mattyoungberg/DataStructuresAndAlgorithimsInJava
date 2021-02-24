@@ -4,9 +4,9 @@ import com.mattyoungberg.StacksAndQueues.Interfaces.IStack;
 
 public class Stack implements IStack {
 
-    private final int maxSize;
-    private final int[] stackArray;
-    private int top;
+    public int maxSize;
+    public int[] stackArray;
+    public int top;
 
     public Stack(int size) {
         this.maxSize = size;
@@ -32,7 +32,10 @@ public class Stack implements IStack {
 
     @Override
     public int peek() {
-        return stackArray[top];
+        if (!isEmpty())
+            return stackArray[top];
+        else
+            return -1;
     }
 
     @Override
