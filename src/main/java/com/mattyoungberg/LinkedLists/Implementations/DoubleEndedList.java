@@ -23,7 +23,7 @@ public class DoubleEndedList implements IDoubleEndedList {
     @Override
     public void insertFirst(int item) {
         first = new Link(item, first);
-        if (isEmpty())
+        if (last == null)
             last = first;
     }
 
@@ -49,12 +49,9 @@ public class DoubleEndedList implements IDoubleEndedList {
     @Override
     public boolean search(int item) {
         Link current = first;
-        while (current != null) {
-            if (current.key == item)
-                return true;
+        while (current != null && current.key != item)
             current = current.next;
-        }
-        return false;
+        return current != null;
     }
 
     @Override
