@@ -12,10 +12,10 @@ public class Queue implements IQueue {
 
     public Queue(int size) {
         this.maxSize = size;
-        queueArray = new int[size];
-        front = 0;
-        rear = -1;
-        nItems = 0;
+        this.queueArray = new int[size];
+        this.front = 0;
+        this.rear = -1;
+        this.nItems = 0;
     }
 
     @Override
