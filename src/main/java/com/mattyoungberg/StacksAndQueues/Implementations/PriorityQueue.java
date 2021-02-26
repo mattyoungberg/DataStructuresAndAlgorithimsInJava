@@ -4,9 +4,9 @@ import com.mattyoungberg.StacksAndQueues.Interfaces.IPriorityQueue;
 
 public class PriorityQueue implements IPriorityQueue {
 
-    public int maxSize;
-    public int[] queueArray;
-    public int nItems;
+    private final int maxSize;
+    private final int[] queueArray;
+    private int nItems;
 
     public PriorityQueue(int size) {
         this.maxSize = size;
@@ -16,7 +16,7 @@ public class PriorityQueue implements IPriorityQueue {
 
     @Override
     public void insert(int item) {
-        if (nItems == 0)
+        if (isEmpty())
             queueArray[nItems++] = item;
         else if (isFull())
             throw new ArrayIndexOutOfBoundsException();
@@ -44,7 +44,7 @@ public class PriorityQueue implements IPriorityQueue {
     @Override
     public int peek() {
         if (!isEmpty())
-            return queueArray[nItems - 1];
+            return queueArray[nItems-1];
         else
             return -1;
     }
