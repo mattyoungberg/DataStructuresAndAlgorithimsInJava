@@ -4,9 +4,9 @@ import com.mattyoungberg.StacksAndQueues.Interfaces.IStack;
 
 public class Stack implements IStack {
 
-    public int maxSize;
-    public int[] stackArray;
-    public int top;
+    private int maxSize;
+    private int[] stackArray;
+    private int top;
 
     public Stack(int size) {
         this.maxSize = size;
