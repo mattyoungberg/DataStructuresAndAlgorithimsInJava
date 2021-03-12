@@ -33,12 +33,9 @@ public class SimpleLinkedList implements ISimpleLinkedList {
     @Override
     public boolean search(int item) {
         Link current = first;
-        while (current != null) {
-            if (current.key == item)
-                return true;
+        while (current != null && current.key != item)
             current = current.next;
-        }
-        return false;
+        return current != null;
     }
 
     @Override
