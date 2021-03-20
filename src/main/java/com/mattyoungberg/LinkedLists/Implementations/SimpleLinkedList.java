@@ -42,17 +42,16 @@ public class SimpleLinkedList implements ISimpleLinkedList {
     public void delete(int item) {
         Link previous = null;
         Link current = first;
-        while (current != null) {
-            if (current.key == item) {
-                if (current == first)
-                    first = first.next;
-                else
-                    previous.next = current.next;
-                return;
-            }
+        while (current != null && current.key != item) {
             previous = current;
             current = current.next;
         }
+        if (current == null)
+            return;
+        if (current == first)
+            first = current.next;
+        else
+            previous.next = current.next;
     }
 
     @Override
