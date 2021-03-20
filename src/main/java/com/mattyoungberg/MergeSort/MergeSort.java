@@ -10,9 +10,9 @@ public class MergeSort {
 
         int[] leftArray = new int[midPoint];
         int[] rightArray = new int[arrayLength - midPoint];
-        for(int i = 0; i < midPoint; i++)
+        for (int i = 0; i < midPoint; i++)
             leftArray[i] = array[i];
-        for(int j = midPoint; j < arrayLength; j++)
+        for (int j = midPoint; j < arrayLength; j++)
             rightArray[j - midPoint] = array[j];
 
         mergeSort(leftArray);
