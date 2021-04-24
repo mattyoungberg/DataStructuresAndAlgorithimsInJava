@@ -29,15 +29,15 @@ public class BinaryTree {
 
     public Node find(int key) {
         Node current = root;
-        while (current.data != key) {
-            if (key < current.data)
+        while (current != null) {
+            if (key == current.data)
+                return current;
+            else if (key < current.data)
                 current = current.leftChild;
             else
                 current = current.rightChild;
-            if (current == null)
-                return null;
         }
-        return current;
+        return null;
     }
 
     public void insert(int key) {
@@ -67,10 +67,12 @@ public class BinaryTree {
     }
 
     public boolean delete(int key) {
+        if (root == null)
+            return false;
         Node current = root;
         Node parent = root;
         boolean currentIsLeftChild = true;
-        while(current.data != key) {
+        while (current.data != key) {
             parent = current;
             if (key < current.data) {
                 currentIsLeftChild = true;
@@ -89,24 +91,21 @@ public class BinaryTree {
                 parent.leftChild = null;
             else
                 parent.rightChild = null;
-        }
-        else if (current.rightChild == null) {
+        } else if (current.rightChild == null) {
             if (current == root)
                 root = current.leftChild;
             else if (currentIsLeftChild)
                 parent.leftChild = current.leftChild;
             else
                 parent.rightChild = current.leftChild;
-        }
-        else if (current.leftChild == null) {
+        } else if (current.leftChild == null) {
             if (current == root)
                 root = current.rightChild;
             else if (currentIsLeftChild)
                 parent.leftChild = current.rightChild;
             else
                 parent.rightChild = current.rightChild;
-        }
-        else {
+        } else {
             Node successor = getSuccessor(current);
             if (current == root)
                 root = successor;
@@ -136,7 +135,7 @@ public class BinaryTree {
     }
 
     public List<Integer> traverse(TraversalType type) {
-        ArrayList<Integer> list = new ArrayList<>();
+        List<Integer> list = new ArrayList<>();
         switch (type) {
             case INORDER:
                 inOrder(root, list);
