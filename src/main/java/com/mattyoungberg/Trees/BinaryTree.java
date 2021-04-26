@@ -2,6 +2,7 @@ package com.mattyoungberg.Trees;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 public class BinaryTree {
 
@@ -19,7 +20,7 @@ public class BinaryTree {
         }
     }
 
-    private enum TraversalType {
+    public enum TraversalType {
         PREORDER, INORDER, POSTORDER
     }
 
@@ -134,7 +135,7 @@ public class BinaryTree {
         return successor;
     }
 
-    public List<Integer> traverse(TraversalType type) {
+    public int[] traverse(TraversalType type) {
         List<Integer> list = new ArrayList<>();
         switch (type) {
             case INORDER:
@@ -147,7 +148,9 @@ public class BinaryTree {
                 postOrder(root, list);
                 break;
         }
-        return list;
+        return list.stream()
+                .mapToInt(Integer::valueOf)
+                .toArray();
     }
 
     private void inOrder(Node localRoot, List<Integer> list) {
