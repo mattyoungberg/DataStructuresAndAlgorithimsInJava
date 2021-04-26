@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class BinaryTree {
+public class BinarySearchTree {
 
     private Node root;
 
@@ -24,7 +24,7 @@ public class BinaryTree {
         PREORDER, INORDER, POSTORDER
     }
 
-    public BinaryTree() {
+    public BinarySearchTree() {
         this.root = null;
     }
 
