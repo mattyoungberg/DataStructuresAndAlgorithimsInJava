@@ -8,7 +8,7 @@ public class BinarySearchTreeTest {
 
     @Test
     public void traversals() {
-        BinarySearchTree tree = new BinarySearchTree();     //                      (6)
+        BinarySearchTree tree = new BinarySearchTree();//               (6)
         tree.insert(6);                    //                      /  \
         tree.insert(3);                    //                    (3)  (10)
         tree.insert(10);                   //                   /   \    \
