@@ -2,7 +2,6 @@ package com.mattyoungberg.Trees;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BinarySearchTree {
 
@@ -46,22 +45,18 @@ public class BinarySearchTree {
         if (root == null)
             root = newNode;
         else {
-            Node current = root;
             Node parent;
-            while (true) {
+            Node current = root;
+            while (current != null) {
                 parent = current;
                 if (key < current.data) {
                     current = current.leftChild;
-                    if (current == null) {
+                    if (current == null)
                         parent.leftChild = newNode;
-                        return;
-                    }
                 } else {
                     current = current.rightChild;
-                    if (current == null) {
+                    if (current == null)
                         parent.rightChild = newNode;
-                        return;
-                    }
                 }
             }
         }
@@ -70,8 +65,8 @@ public class BinarySearchTree {
     public boolean delete(int key) {
         if (root == null)
             return false;
-        Node current = root;
         Node parent = root;
+        Node current = root;
         boolean currentIsLeftChild = true;
         while (current.data != key) {
             parent = current;
