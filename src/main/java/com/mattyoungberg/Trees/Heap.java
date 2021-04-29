@@ -2,8 +2,8 @@ package com.mattyoungberg.Trees;
 
 public class Heap {
 
-    private Node[] heapArray;
-    private int maxSize;
+    private final Node[] heapArray;
+    private final int maxSize;
     private int currentSize;
 
     public Heap(int maxSize) {
