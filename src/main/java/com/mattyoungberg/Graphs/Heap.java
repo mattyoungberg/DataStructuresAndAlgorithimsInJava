@@ -1,4 +1,4 @@
-package com.mattyoungberg.Trees;
+package com.mattyoungberg.Graphs;
 
 public class Heap {
 

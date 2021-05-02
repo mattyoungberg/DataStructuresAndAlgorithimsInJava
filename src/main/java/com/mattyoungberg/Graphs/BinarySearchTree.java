@@ -1,4 +1,4 @@
-package com.mattyoungberg.Trees;
+package com.mattyoungberg.Graphs;
 
 import java.util.ArrayList;
 import java.util.List;
