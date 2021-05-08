@@ -1,4 +1,4 @@
-package com.mattyoungberg.MergeSort;
+package com.mattyoungberg.Sorts;
 
 public class MergeSort {
 
