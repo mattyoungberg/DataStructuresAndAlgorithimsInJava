@@ -7,7 +7,7 @@ public class BubbleSort {
         for (outer = array.length - 1; outer > 1; outer--)
             for (inner = 0; inner < outer; inner++)
                 if (array[inner] > array[inner + 1])
-                    BubbleSort.swap(array, inner, inner + 1);
+                    swap(array, inner, inner + 1);
     }
 
     private static void swap(int[] array, int i, int j) {
