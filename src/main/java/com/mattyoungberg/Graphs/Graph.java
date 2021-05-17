@@ -43,7 +43,7 @@ public class Graph {
     }
 
     public char[] dfs() {
-        List<Character> list = new ArrayList<>(MAX_VERTS);
+        List<Character> list = new ArrayList<>(nVerts);
         Stack<Integer> stack = new Stack<>();
         vertexList[0].wasVisited = true;
         list.add(vertexList[0].label);
@@ -67,7 +67,7 @@ public class Graph {
     }
 
     public char[] bfs() {
-        List<Character> list = new ArrayList<>(MAX_VERTS);
+        List<Character> list = new ArrayList<>(nVerts);
         Queue<Integer> queue = new LinkedList<>();
         vertexList[0].wasVisited = true;
         list.add(vertexList[0].label);
